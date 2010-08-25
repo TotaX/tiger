@@ -30,13 +30,19 @@ fun main(args) =
 		val lexbuf = lexstream entrada
 		val expr = prog Tok lexbuf handle _ => errParsing lexbuf
 	in	
+                (* Buscamos variables escapadas *)
+                if escapes then buscarEscapes expr else ();
+
+                (* IR: Se hace el SEMANT y el IR al mismo tiempo *)
                 if ir then 
                   let
-                    val {exp,...} = (buscarEscapes expr;transProg expr)
+                    val {exp,...} = transProg expr
                   in
                     print (tigertranslate.pp exp)
                   end
-                      else ();
+                else ();
+                
+                (* Imprimimos arbol AST *)
                 if arbol then exprAst expr else ();
                 print "YES!!\n"
 	end	handle Fail s => print("Fail: "^s^"\n")
