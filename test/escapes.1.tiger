@@ -1,0 +1,5 @@
+let var i:= 0
+function f(i:int):int = i:=1
+in
+f(1)
+end

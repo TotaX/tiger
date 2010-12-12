@@ -1,0 +1,6 @@
+let
+var i:= 1
+function f(j:int):int = i+j /*i esta escapada, j no esta escapada */
+in
+f(12)
+end

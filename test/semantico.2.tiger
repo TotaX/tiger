@@ -1,0 +1,9 @@
+let
+	type A = array of int
+	var a:= A[10] of int
+	type A = array of int
+	var b:= A[10] of int
+
+in
+	if a=b then 0 else 1
+end

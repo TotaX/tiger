@@ -1,0 +1,7 @@
+let var a:= 0 /* a no es escapada por culpa de f */
+	var y:= a /*y es una variable escapada */
+	function f(a:string) = a:= a
+	function ff() = ff(y) /* AQUI HAY UN ERROR SEMANTICO*/
+in 
+f("hola");ff()
+end
